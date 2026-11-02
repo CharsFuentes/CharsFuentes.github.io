@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charles Fuentes Flores — Portafolio</title>
+  <meta name="description" content="Ingeniero de Sistemas y desarrollador full stack y móvil en Iquitos, Perú. Sistemas en producción para gobiernos locales, apps publicadas en Play Store y App Store, e integración de IA." />
+  <meta property="og:title" content="Charles Fuentes Flores — Portafolio" />
+  <meta property="og:description" content="Desarrollador full stack y móvil: Django, React, Flutter e IA. Sistemas en producción para municipalidades y productos propios." />
+  <meta property="og:image" content="assets/img/proyectos/serenazgo/01-mapa-calor.webp" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f766e'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'>CF</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="contenedor nav__in">
+      <a href="#inicio" class="nav__marca"><span class="logo">CF</span> Charles Fuentes</a>
+      <nav class="nav__links" aria-label="Secciones">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#stack">Tecnologías</a>
+        <a href="#contacto" class="boton boton--chico">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="contenedor hero__in">
+        <div class="hero__texto">
+          <p class="hero__ubicacion">📍 <span data-perfil="ubicacion"></span></p>
+          <h1>Hola, soy <span class="resaltado">Charles Fuentes</span></h1>
+          <p class="hero__titulo" data-perfil="titulo"></p>
+          <p class="hero__intro">
+            Construyo sistemas que la gente usa todos los días: desde el registro de incidencias del serenazgo de
+            Maynas hasta una app de delivery publicada en Play Store y App Store. Trabajo de punta a punta
+            —base de datos, API, web, app móvil, despliegue— y me gusta integrar IA de forma segura.
+          </p>
+          <div class="hero__acciones">
+            <a href="#proyectos" class="boton">Ver proyectos</a>
+            <a data-enlace="whatsapp" class="boton boton--borde" target="_blank" rel="noopener">WhatsApp</a>
+            <a data-enlace="linkedin" class="boton boton--borde" target="_blank" rel="noopener">LinkedIn</a>
+            <a data-enlace="github" class="boton boton--borde" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <ul class="cifras">
+          <li><strong>25+</strong><span>proyectos desarrollados</span></li>
+          <li><strong>5</strong><span>sistemas en producción</span></li>
+          <li><strong>1</strong><span>app publicada en Play Store y App Store</span></li>
+          <li><strong>2</strong><span>municipalidades con sistemas implementados</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="proyectos" class="seccion">
+      <div class="contenedor">
+        <h2 class="seccion__titulo">Proyectos</h2>
+        <p class="seccion__sub">Haz clic en un proyecto para ver sus pantallas, qué hace y con qué está construido.</p>
+        <div class="filtros" id="filtros" role="tablist" aria-label="Filtrar proyectos"></div>
+        <div class="grilla" id="grilla"></div>
+
+        <h3 class="subtitulo">Más proyectos</h3>
+        <div class="grilla-otros" id="otros"></div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="seccion seccion--alterna">
+      <div class="contenedor">
+        <h2 class="seccion__titulo">Experiencia</h2>
+        <ol class="linea" id="experiencia-lista"></ol>
+        <div class="educacion">
+          <h3>Formación</h3>
+          <p><strong>Ingeniería de Sistemas e Informática</strong> — Universidad Nacional de la Amazonía Peruana (UNAP), Facultad de Ingeniería de Sistemas e Informática.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="seccion">
+      <div class="contenedor">
+        <h2 class="seccion__titulo">Tecnologías</h2>
+        <div class="stack" id="stack-lista"></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion seccion--contacto">
+      <div class="contenedor contacto">
+        <h2>¿Conversamos?</h2>
+        <p>Estoy buscando nuevas oportunidades como desarrollador. Escríbeme y te respondo pronto.</p>
+        <div class="contacto__botones">
+          <a data-enlace="correo" class="boton">✉️ <span data-perfil="correo"></span></a>
+          <a data-enlace="whatsapp" class="boton boton--claro" target="_blank" rel="noopener">💬 WhatsApp +51 900 442 514</a>
+          <a data-enlace="linkedin" class="boton boton--claro" target="_blank" rel="noopener">LinkedIn</a>
+          <a data-enlace="github" class="boton boton--claro" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">© <span id="anio"></span> Charles Fuentes Flores · Las capturas usan datos de demostración.</div>
+  </footer>
+
+  <!-- Detalle de proyecto con galería -->
+  <dialog class="modal" id="modal" aria-labelledby="modal-titulo">
+    <button class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar">✕</button>
+    <div class="modal__cuerpo">
+      <div class="visor">
+        <button class="visor__nav visor__nav--prev" id="visor-prev" aria-label="Imagen anterior">‹</button>
+        <figure class="visor__figura">
+          <img id="visor-img" alt="" />
+          <figcaption id="visor-texto"></figcaption>
+        </figure>
+        <button class="visor__nav visor__nav--next" id="visor-next" aria-label="Imagen siguiente">›</button>
+      </div>
+      <div class="miniaturas" id="miniaturas"></div>
+      <div class="detalle" id="detalle"></div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
