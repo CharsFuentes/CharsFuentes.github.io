@@ -1,7 +1,7 @@
 <h1 align="center">Hola, soy Charles Fuentes 👋</h1>
 <p align="center">
-  <b>Ingeniero de Sistemas · Desarrollador Full Stack & Móvil</b><br/>
-  Iquitos, Perú · Django · React · Flutter · IA
+  <b>Ingeniero de Sistemas. Desarrollador full stack y móvil</b><br/>
+  Iquitos, Perú. Django, React, Flutter e IA
 </p>
 
 <p align="center">
@@ -11,17 +11,17 @@
   <a href="mailto:charlesfuentesflores@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Correo"/></a>
 </p>
 
-Construyo sistemas que la gente usa todos los días: desde el registro de incidencias del serenazgo de Maynas hasta una app de delivery publicada en Play Store y App Store. Trabajo de punta a punta —base de datos, API, web, app móvil y despliegue— y me gusta integrar IA de forma segura.
+Construyo sistemas que la gente usa todos los días: desde el registro de incidencias del serenazgo de Maynas hasta una app de delivery publicada en Play Store y App Store. Trabajo de punta a punta (base de datos, API, web, app móvil y despliegue) y me gusta integrar IA de forma segura.
 
 ## Proyectos destacados
 
 | | |
 |---|---|
-| <a href="https://charsfuentes.github.io/#serenazgo"><img src="https://charsfuentes.github.io/assets/img/proyectos/serenazgo/01-mapa-calor.webp" width="400"/></a> | **[Serenazgo Digital (SIPSC)](https://charsfuentes.github.io/#serenazgo)** — Registro digital de incidencias de seguridad ciudadana con mapa de calor y tablero de mando. **En producción** en la Municipalidad Provincial de Maynas.<br/>`Django` `React 19` `SQL Server` `Leaflet` |
-| <a href="https://charsfuentes.github.io/#zivo"><img src="https://charsfuentes.github.io/assets/img/proyectos/zivo/01-inicio.webp" width="130"/> <img src="https://charsfuentes.github.io/assets/img/proyectos/zivo/04-pedido-rider.webp" width="130"/></a> | **[Zivo](https://charsfuentes.github.io/#zivo)** — Delivery multicategoría para Iquitos con app para clientes, comercios y repartidores. **Publicada en Play Store y App Store**.<br/>`Flutter` `Firebase` `Django` `PostgreSQL` `Redis` `Docker` |
-| <a href="https://charsfuentes.github.io/#brunnerai"><img src="https://charsfuentes.github.io/assets/img/proyectos/brunnerai/02-arquitectura.webp" width="400"/></a> | **[BrunnerAI](https://charsfuentes.github.io/#brunnerai)** — Asistente de IA que responde preguntas de negocio consultando el ERP en modo solo lectura, con tres capas de seguridad. Idea y desarrollo propios.<br/>`Claude API` `MCP` `PHP` `MySQL` `Flutter` |
-| <a href="https://charsfuentes.github.io/#participa"><img src="https://charsfuentes.github.io/assets/img/proyectos/participa/01-sala-mando.webp" width="400"/></a> | **[Participa](https://charsfuentes.github.io/#participa)** — Participación ciudadana con registro público encadenado por SHA-256 que cualquiera puede verificar.<br/>`Node.js` `Express` `SQLite` `Docker` |
-| <a href="https://charsfuentes.github.io/#finlot"><img src="https://charsfuentes.github.io/assets/img/proyectos/finlot/04-resultado-sorteo.webp" width="400"/></a> | **[Finlot](https://charsfuentes.github.io/#finlot)** — Sorteos en línea con billetera, pagos con Culqi, sorteo en vivo por WebSockets y panel de notaría verificable.<br/>`Django Channels` `React 19` `TypeScript` `Redis` |
+| <a href="https://charsfuentes.github.io/#serenazgo"><img src="https://charsfuentes.github.io/assets/img/proyectos/serenazgo/01-mapa-calor.webp" width="400"/></a> | **[Serenazgo Digital (SIPSC)](https://charsfuentes.github.io/#serenazgo)**: Registro digital de incidencias de seguridad ciudadana con mapa de calor y tablero de mando. **En producción** en la Municipalidad Provincial de Maynas.<br/>`Django` `React 19` `SQL Server` `Leaflet` |
+| <a href="https://charsfuentes.github.io/#zivo"><img src="https://charsfuentes.github.io/assets/img/proyectos/zivo/01-inicio.webp" width="130"/> <img src="https://charsfuentes.github.io/assets/img/proyectos/zivo/04-pedido-rider.webp" width="130"/></a> | **[Zivo](https://charsfuentes.github.io/#zivo)**: Delivery multicategoría para Iquitos con app para clientes, comercios y repartidores. **Publicada en Play Store y App Store**.<br/>`Flutter` `Firebase` `Django` `PostgreSQL` `Redis` `Docker` |
+| <a href="https://charsfuentes.github.io/#brunnerai"><img src="https://charsfuentes.github.io/assets/img/proyectos/brunnerai/02-arquitectura.webp" width="400"/></a> | **[BrunnerAI](https://charsfuentes.github.io/#brunnerai)**: Asistente de IA que responde preguntas de negocio consultando el ERP en modo solo lectura, con tres capas de seguridad. Idea y desarrollo propios.<br/>`Claude API` `MCP` `PHP` `MySQL` `Flutter` |
+| <a href="https://charsfuentes.github.io/#participa"><img src="https://charsfuentes.github.io/assets/img/proyectos/participa/01-sala-mando.webp" width="400"/></a> | **[Participa](https://charsfuentes.github.io/#participa)**: Participación ciudadana con registro público encadenado por SHA-256 que cualquiera puede verificar.<br/>`Node.js` `Express` `SQLite` `Docker` |
+| <a href="https://charsfuentes.github.io/#finlot"><img src="https://charsfuentes.github.io/assets/img/proyectos/finlot/04-resultado-sorteo.webp" width="400"/></a> | **[Finlot](https://charsfuentes.github.io/#finlot)**: Sorteos en línea con billetera, pagos con Culqi, sorteo en vivo por WebSockets y panel de notaría verificable.<br/>`Django Channels` `React 19` `TypeScript` `Redis` |
 
 ➡️ **[Ver todos los proyectos con sus pantallas](https://charsfuentes.github.io/#proyectos)**: SGCOBIT19, IA Recaudación, Alini, MuniWeb 2025, Trámite Documentario, Splash Bubble, FintBot y más.
 

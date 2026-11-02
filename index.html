@@ -1,125 +1,223 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="oscuro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charles Fuentes Flores — Portafolio</title>
-  <meta name="description" content="Ingeniero de Sistemas y desarrollador full stack y móvil en Iquitos, Perú. Sistemas en producción para gobiernos locales, apps publicadas en Play Store y App Store, e integración de IA." />
-  <meta property="og:title" content="Charles Fuentes Flores — Portafolio" />
-  <meta property="og:description" content="Desarrollador full stack y móvil: Django, React, Flutter e IA. Sistemas en producción para municipalidades y productos propios." />
-  <meta property="og:image" content="assets/img/proyectos/serenazgo/01-mapa-calor.webp" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f766e'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'>CF</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Charles Fuentes Flores | Desarrollador full stack y móvil</title>
+  <meta name="description" content="Ingeniero de Sistemas en Iquitos, Perú. Sistemas en producción para municipalidades, una app publicada en Play Store y App Store, e IA aplicada a empresas." />
+  <meta property="og:title" content="Charles Fuentes Flores | Portafolio" />
+  <meta property="og:description" content="Desarrollador full stack y móvil: Django, React, Flutter e IA." />
+  <meta property="og:image" content="https://charsfuentes.github.io/assets/img/proyectos/serenazgo/01-mapa-calor.webp" />
+  <meta name="theme-color" content="#0d0e10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23ef6b3a'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='26' fill='%231a0c06'>CF</text></svg>" />
+  <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/img/proyectos/serenazgo/01-mapa-calor.webp" as="image" />
+  <link rel="stylesheet" href="assets/vendor/phosphor/regular.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    // Tema antes de pintar, para evitar parpadeo
+    (function () {
+      var t = localStorage.getItem("tema");
+      if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "claro" : "oscuro";
+      document.documentElement.dataset.tema = t;
+    })();
+  </script>
 </head>
 <body>
-  <header class="nav">
-    <div class="contenedor nav__in">
-      <a href="#inicio" class="nav__marca"><span class="logo">CF</span> Charles Fuentes</a>
+  <a class="saltar" href="#proyectos">Saltar a los proyectos</a>
+
+  <header class="nav" id="nav">
+    <div class="marco nav__in">
+      <a href="#inicio" class="nav__marca" aria-label="Inicio">
+        <span class="nav__logo">CF</span>
+        <span>Charles Fuentes</span>
+      </a>
       <nav class="nav__links" aria-label="Secciones">
         <a href="#proyectos">Proyectos</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#stack">Tecnologías</a>
-        <a href="#contacto" class="boton boton--chico">Contacto</a>
       </nav>
+      <div class="nav__acciones">
+        <button class="icono-boton" id="tema" type="button" aria-label="Cambiar tema claro u oscuro">
+          <i class="ph ph-moon-stars" aria-hidden="true"></i>
+        </button>
+        <a href="#contacto" class="boton boton--chico magnetico">Escríbeme</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section id="inicio" class="hero">
-      <div class="contenedor hero__in">
+    <!-- Portada -->
+    <section class="hero" id="inicio">
+      <div class="marco hero__in">
         <div class="hero__texto">
-          <p class="hero__ubicacion">📍 <span data-perfil="ubicacion"></span></p>
-          <h1>Hola, soy <span class="resaltado">Charles Fuentes</span></h1>
-          <p class="hero__titulo" data-perfil="titulo"></p>
-          <p class="hero__intro">
-            Construyo sistemas que la gente usa todos los días: desde el registro de incidencias del serenazgo de
-            Maynas hasta una app de delivery publicada en Play Store y App Store. Trabajo de punta a punta
-            —base de datos, API, web, app móvil, despliegue— y me gusta integrar IA de forma segura.
-          </p>
+          <p class="hero__ceja">Charles Fuentes, Ingeniero de Sistemas</p>
+          <h1 class="hero__titulo" id="titulo">Construyo software que se usa <em>de verdad.</em></h1>
+          <p class="hero__sub">Full stack y móvil. Sistemas en producción para municipalidades, apps en Play Store y App Store, e IA aplicada.</p>
           <div class="hero__acciones">
-            <a href="#proyectos" class="boton">Ver proyectos</a>
-            <a data-enlace="whatsapp" class="boton boton--borde" target="_blank" rel="noopener">WhatsApp</a>
-            <a data-enlace="linkedin" class="boton boton--borde" target="_blank" rel="noopener">LinkedIn</a>
-            <a data-enlace="github" class="boton boton--borde" target="_blank" rel="noopener">GitHub</a>
+            <a href="#proyectos" class="boton magnetico">Ver proyectos <i class="ph ph-arrow-down-right" aria-hidden="true"></i></a>
+            <a href="#contacto" class="boton boton--fantasma magnetico">Escríbeme</a>
           </div>
         </div>
-        <ul class="cifras">
-          <li><strong>25+</strong><span>proyectos desarrollados</span></li>
-          <li><strong>5</strong><span>sistemas en producción</span></li>
-          <li><strong>1</strong><span>app publicada en Play Store y App Store</span></li>
-          <li><strong>2</strong><span>municipalidades con sistemas implementados</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="proyectos" class="seccion">
-      <div class="contenedor">
-        <h2 class="seccion__titulo">Proyectos</h2>
-        <p class="seccion__sub">Haz clic en un proyecto para ver sus pantallas, qué hace y con qué está construido.</p>
-        <div class="filtros" id="filtros" role="tablist" aria-label="Filtrar proyectos"></div>
-        <div class="grilla" id="grilla"></div>
-
-        <h3 class="subtitulo">Más proyectos</h3>
-        <div class="grilla-otros" id="otros"></div>
-      </div>
-    </section>
-
-    <section id="experiencia" class="seccion seccion--alterna">
-      <div class="contenedor">
-        <h2 class="seccion__titulo">Experiencia</h2>
-        <ol class="linea" id="experiencia-lista"></ol>
-        <div class="educacion">
-          <h3>Formación</h3>
-          <p><strong>Ingeniería de Sistemas e Informática</strong> — Universidad Nacional de la Amazonía Peruana (UNAP), Facultad de Ingeniería de Sistemas e Informática.</p>
+        <div class="hero__visual" id="visual" aria-hidden="true">
+          <div class="capa capa--escritorio" data-prof="0.4">
+            <img src="assets/img/proyectos/serenazgo/01-mapa-calor.webp" alt="" width="1400" height="788" />
+          </div>
+          <div class="capa capa--tablero" data-prof="0.7">
+            <img src="assets/img/proyectos/sgcobit19/03-mapa-calor-magerit.webp" alt="" width="1400" height="875" />
+          </div>
+          <div class="capa capa--movil capa--m1" data-prof="1.1">
+            <img src="assets/img/proyectos/zivo/01-inicio.webp" alt="" width="480" height="1067" />
+          </div>
+          <div class="capa capa--movil capa--m2" data-prof="1.5">
+            <img src="assets/img/proyectos/zivo/04-pedido-rider.webp" alt="" width="480" height="1041" />
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="stack" class="seccion">
-      <div class="contenedor">
-        <h2 class="seccion__titulo">Tecnologías</h2>
+    <!-- Tecnologías en movimiento -->
+    <section class="cinta" aria-label="Tecnologías que uso">
+      <div class="cinta__pista" id="cinta"></div>
+    </section>
+
+    <!-- Impacto -->
+    <section class="seccion" id="impacto">
+      <div class="marco">
+        <h2 class="titulo-seccion" data-revelar>Lo que ya está funcionando</h2>
+        <div class="bento">
+          <article class="bento__celda bento__celda--a" data-revelar>
+            <img class="bento__fondo" src="assets/img/proyectos/serenazgo/03-analitica.webp" alt="" loading="lazy" />
+            <div class="bento__texto">
+              <span class="cifra"><span data-contar="5">5</span></span>
+              <h3>sistemas en producción</h3>
+              <p>Serenazgo Digital, Zivo, Participa, MuniWeb y Munipay, usados a diario.</p>
+            </div>
+          </article>
+          <article class="bento__celda bento__celda--b" data-revelar>
+            <div class="bento__texto">
+              <span class="cifra"><span data-contar="1">1</span></span>
+              <h3>app publicada en Play Store y App Store</h3>
+            </div>
+            <img class="bento__telefono" src="assets/img/proyectos/zivo/02-carta.webp" alt="" loading="lazy" />
+          </article>
+          <article class="bento__celda bento__celda--c" data-revelar>
+            <span class="cifra"><span data-contar="25">25</span>+</span>
+            <h3>proyectos entre gobierno, fintech, IA y comercio</h3>
+          </article>
+          <article class="bento__celda bento__celda--d" data-revelar>
+            <img class="bento__fondo" src="assets/img/proyectos/brunnerai/02-arquitectura.webp" alt="" loading="lazy" />
+            <div class="bento__texto">
+              <span class="cifra"><span data-contar="320">320</span>+</span>
+              <h3>commits en cinco meses en un ERP corporativo</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destacados: desplazamiento horizontal -->
+    <section class="destacados" id="proyectos">
+      <div class="destacados__cabecera marco">
+        <h2 class="titulo-seccion">Proyectos destacados</h2>
+        <div class="destacados__progreso" aria-hidden="true"><span id="progreso"></span></div>
+      </div>
+      <div class="destacados__pista" id="pista"></div>
+    </section>
+
+    <!-- Más proyectos con galería -->
+    <section class="seccion" id="mas-proyectos">
+      <div class="marco">
+        <h2 class="titulo-seccion" data-revelar>Más trabajo con pantallas</h2>
+        <div class="mosaico" id="mosaico"></div>
+      </div>
+    </section>
+
+    <!-- Otros proyectos -->
+    <section class="seccion seccion--compacta" aria-labelledby="otros-titulo">
+      <div class="marco otros__cabecera">
+        <h2 class="titulo-seccion" id="otros-titulo" data-revelar>Otros proyectos</h2>
+        <div class="otros__flechas">
+          <button class="icono-boton" type="button" id="otros-prev" aria-label="Anteriores"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+          <button class="icono-boton" type="button" id="otros-next" aria-label="Siguientes"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="carrusel" id="otros" tabindex="0" aria-label="Otros proyectos, desliza para ver más"></div>
+    </section>
+
+    <!-- Experiencia -->
+    <section class="seccion" id="experiencia">
+      <div class="marco experiencia">
+        <div class="experiencia__lado">
+          <h2 class="titulo-seccion" data-revelar>Dónde he trabajado</h2>
+          <div class="formacion" data-revelar>
+            <i class="ph ph-graduation-cap" aria-hidden="true"></i>
+            <div>
+              <strong>Ingeniería de Sistemas e Informática</strong>
+              <span>Universidad Nacional de la Amazonía Peruana (UNAP)</span>
+            </div>
+          </div>
+        </div>
+        <ol class="linea" id="linea">
+          <span class="linea__riel" aria-hidden="true"><span class="linea__relleno" id="relleno"></span></span>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section class="seccion" id="stack">
+      <div class="marco">
+        <h2 class="titulo-seccion" data-revelar>Con qué construyo</h2>
         <div class="stack" id="stack-lista"></div>
       </div>
     </section>
 
-    <section id="contacto" class="seccion seccion--contacto">
-      <div class="contenedor contacto">
-        <h2>¿Conversamos?</h2>
-        <p>Estoy buscando nuevas oportunidades como desarrollador. Escríbeme y te respondo pronto.</p>
-        <div class="contacto__botones">
-          <a data-enlace="correo" class="boton">✉️ <span data-perfil="correo"></span></a>
-          <a data-enlace="whatsapp" class="boton boton--claro" target="_blank" rel="noopener">💬 WhatsApp +51 900 442 514</a>
-          <a data-enlace="linkedin" class="boton boton--claro" target="_blank" rel="noopener">LinkedIn</a>
-          <a data-enlace="github" class="boton boton--claro" target="_blank" rel="noopener">GitHub</a>
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+      <div class="marco contacto__in">
+        <h2 class="contacto__titulo" data-revelar>¿Tienes una vacante o un proyecto?</h2>
+        <p class="contacto__sub" data-revelar>Respondo rápido por WhatsApp o correo. Estoy en Iquitos, Loreto, Perú.</p>
+        <button class="correo magnetico" id="copiar" type="button" data-revelar>
+          <span id="correo-texto"></span>
+          <i class="ph ph-copy" aria-hidden="true"></i>
+          <span class="correo__aviso" id="aviso" role="status"></span>
+        </button>
+        <div class="contacto__redes" data-revelar>
+          <a class="boton magnetico" data-enlace="whatsapp" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i> WhatsApp</a>
+          <a class="boton boton--fantasma magnetico" data-enlace="linkedin" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn</a>
+          <a class="boton boton--fantasma magnetico" data-enlace="github" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i> GitHub</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="pie">
-    <div class="contenedor">© <span id="anio"></span> Charles Fuentes Flores · Las capturas usan datos de demostración.</div>
+    <div class="marco pie__in">
+      <span>© <span id="anio"></span> Charles Fuentes Flores</span>
+      <span>Las capturas usan datos de demostración.</span>
+    </div>
   </footer>
 
-  <!-- Detalle de proyecto con galería -->
+  <!-- Detalle de proyecto -->
   <dialog class="modal" id="modal" aria-labelledby="modal-titulo">
-    <button class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar">✕</button>
+    <button class="icono-boton modal__cerrar" id="modal-cerrar" type="button" aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button>
     <div class="modal__cuerpo">
-      <div class="visor">
-        <button class="visor__nav visor__nav--prev" id="visor-prev" aria-label="Imagen anterior">‹</button>
+      <div class="visor" id="visor">
+        <button class="icono-boton visor__nav visor__nav--prev" id="visor-prev" type="button" aria-label="Imagen anterior"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
         <figure class="visor__figura">
           <img id="visor-img" alt="" />
-          <figcaption id="visor-texto"></figcaption>
         </figure>
-        <button class="visor__nav visor__nav--next" id="visor-next" aria-label="Imagen siguiente">›</button>
+        <button class="icono-boton visor__nav visor__nav--next" id="visor-next" type="button" aria-label="Imagen siguiente"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
       </div>
+      <p class="visor__texto" id="visor-texto"></p>
       <div class="miniaturas" id="miniaturas"></div>
       <div class="detalle" id="detalle"></div>
     </div>
   </dialog>
 
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/js/logos.js"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

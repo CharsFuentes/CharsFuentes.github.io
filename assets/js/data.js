@@ -5,8 +5,8 @@ const IMG = "assets/img/proyectos";
 
 window.PERFIL = {
   nombre: "Charles Fuentes Flores",
-  titulo: "Ingeniero de Sistemas · Desarrollador Full Stack & Móvil",
-  ubicacion: "Iquitos, Loreto — Perú",
+  titulo: "Ingeniero de Sistemas. Full stack y móvil",
+  ubicacion: "Iquitos, Loreto, Perú",
   correo: "charlesfuentesflores@gmail.com",
   whatsapp: "51900442514",
   linkedin: "https://www.linkedin.com/in/charles-fuentes-flores-801a8022b/",
@@ -25,7 +25,9 @@ window.CATEGORIAS = {
 window.PROYECTOS = [
   {
     id: "serenazgo",
-    nombre: "Serenazgo Digital (SIPSC)",
+    destacado: true,
+    nombre: "Serenazgo Digital",
+    subtitulo: "Seguridad ciudadana en tiempo real",
     resumen:
       "Sistema de información para la seguridad ciudadana: registro digital de incidencias del serenazgo según el formato nacional, mapa de calor y tablero de mando.",
     estado: "En producción",
@@ -58,7 +60,9 @@ window.PROYECTOS = [
   },
   {
     id: "zivo",
-    nombre: "Zivo — delivery para Iquitos",
+    destacado: true,
+    nombre: "Zivo",
+    subtitulo: "Delivery para Iquitos",
     resumen:
       "Plataforma de delivery multicategoría (comida, minimarket, farmacia, licores, ferretería) con app para clientes, comercios y repartidores, y panel web de administración.",
     estado: "Publicada en Play Store y App Store",
@@ -95,7 +99,9 @@ window.PROYECTOS = [
   },
   {
     id: "brunnerai",
-    nombre: "BrunnerAI — asistente de IA para un ERP",
+    destacado: true,
+    nombre: "BrunnerAI",
+    subtitulo: "Asistente de IA para un ERP",
     resumen:
       "Asistente conversacional que responde preguntas de negocio consultando la base de datos del ERP en modo solo lectura, con reportes PDF, voz y una app móvil. Idea y desarrollo propios.",
     estado: "En implementación",
@@ -123,7 +129,8 @@ window.PROYECTOS = [
   },
   {
     id: "finlot",
-    nombre: "Finlot — sorteos en línea verificables",
+    nombre: "Finlot",
+    subtitulo: "Sorteos en línea verificables",
     resumen:
       "Plataforma de sorteos con billetera electrónica, pagos con tarjeta y Yape, sorteo automático en vivo y un panel de notaría que permite auditar cada resultado.",
     estado: "Prototipo funcional",
@@ -150,16 +157,18 @@ window.PROYECTOS = [
   },
   {
     id: "sgcobit19",
-    nombre: "SGCOBIT19 — auditoría de TI",
+    destacado: true,
+    nombre: "SGCOBIT19",
+    subtitulo: "Auditoría de TI con COBIT y MAGERIT",
     resumen:
       "Sistema web para auditar la gestión de TI con COBIT 2019 y analizar riesgos con MAGERIT v3: evaluación de capacidad, mapas de calor, hallazgos e informes con un clic.",
     estado: "Proyecto académico aplicado",
     rol: "Desarrollador único",
-    cliente: "Curso de auditoría de TI — caso Municipalidad de Maynas",
+    cliente: "Curso de auditoría de TI (caso Maynas)",
     categorias: ["web", "gobierno"],
     stack: ["Django 5.2", "DRF", "PostgreSQL", "React 19", "TypeScript", "Tailwind 4", "TanStack Query", "Recharts", "Docker"],
     descripcion:
-      "Cubre el ciclo completo de una auditoría: alcance por objetivos COBIT, evaluación de las 231 prácticas con niveles de capacidad 0–5 y brechas, inventario de activos valorados en D/I/C/A/T, escenarios activo × amenaza con riesgo potencial y residual, hallazgos con plan de acción, evidencias privadas e informe PDF y papeles de trabajo en Excel.",
+      "Cubre el ciclo completo de una auditoría: alcance por objetivos COBIT, evaluación de las 231 prácticas con niveles de capacidad 0-5 y brechas, inventario de activos valorados en D/I/C/A/T, escenarios activo × amenaza con riesgo potencial y residual, hallazgos con plan de acción, evidencias privadas e informe PDF y papeles de trabajo en Excel.",
     destacados: [
       "Catálogo de 40 objetivos y 231 prácticas de COBIT 2019 con niveles de capacidad y brechas",
       "Cálculo de riesgo MAGERIT v3 (potencial y residual) con mapas de calor",
@@ -173,7 +182,7 @@ window.PROYECTOS = [
       ["sgcobit19/02-capacidad-cobit.webp", "Capacidad COBIT 2019: radar y brechas por objetivo"],
       ["sgcobit19/03-mapa-calor-magerit.webp", "Mapas de calor MAGERIT: riesgo potencial y residual"],
       ["sgcobit19/04-resumen-auditoria.webp", "Resumen de la auditoría con indicadores"],
-      ["sgcobit19/05-evaluacion-practicas.webp", "Evaluación de prácticas con niveles de capacidad 0–5"],
+      ["sgcobit19/05-evaluacion-practicas.webp", "Evaluación de prácticas con niveles de capacidad 0-5"],
       ["sgcobit19/06-escenarios-riesgo.webp", "221 escenarios de riesgo activo × amenaza"],
       ["sgcobit19/07-hallazgo.webp", "Hallazgo: condición, criterio, causa, efecto y recomendación"],
       ["sgcobit19/08-plan-accion.webp", "Seguimiento del plan de acción"],
@@ -185,7 +194,9 @@ window.PROYECTOS = [
   },
   {
     id: "participa",
-    nombre: "Participa — participación ciudadana",
+    destacado: true,
+    nombre: "Participa",
+    subtitulo: "Participación ciudadana verificable",
     resumen:
       "Plataforma marca blanca donde los ciudadanos proponen y priorizan, la autoridad siempre responde, y los compromisos con sus evidencias quedan en un registro público a prueba de manipulación.",
     estado: "En producción",
@@ -218,7 +229,8 @@ window.PROYECTOS = [
   },
   {
     id: "iarecaudacion",
-    nombre: "IA Recaudación — predicción tributaria",
+    nombre: "IA Recaudación",
+    subtitulo: "Predicción de la recaudación tributaria",
     resumen:
       "Tablero para la administración tributaria: análisis de deuda por concepto y etapa de cobranza, proyección de la recaudación con modelos SARIMA y consultas SQL guardadas.",
     estado: "En producción (uso interno)",
@@ -246,7 +258,8 @@ window.PROYECTOS = [
   },
   {
     id: "alini",
-    nombre: "Alini — videollamadas con IA",
+    nombre: "Alini",
+    subtitulo: "Videollamadas con IA",
     resumen:
       "Plataforma de videoconferencias en el navegador con el asistente FintBot dentro del chat de la reunión, y cliente nativo para Android.",
     estado: "Prototipo desplegado",
@@ -271,7 +284,8 @@ window.PROYECTOS = [
   },
   {
     id: "muniweb",
-    nombre: "MuniWeb 2025 — portal institucional",
+    nombre: "MuniWeb 2025",
+    subtitulo: "Portal institucional administrable",
     resumen:
       "Portal web de la municipalidad con panel administrable: noticias, compromisos de gestión con presupuesto y avance, documentos, eventos, innovaciones y testimonios.",
     estado: "En producción",
@@ -294,12 +308,12 @@ window.PROYECTOS = [
       ["muniweb/06-compromisos-publico.webp", "Compromisos de gestión: avance de meta física por año"],
       ["muniweb/03-compromisos.webp", "Panel: gestión de compromisos con presupuesto y meta física"],
       ["muniweb/04-innovaciones.webp", "Módulo de innovaciones"],
-      ["muniweb/05-modelo-er.webp", "Modelo entidad-relación de la base de datos"],
     ],
   },
   {
     id: "tramite",
     nombre: "Trámite Documentario",
+    subtitulo: "Seguimiento de documentos entre áreas",
     resumen:
       "Sistema web de registro, envío, recepción y seguimiento de documentos entre áreas, con hoja de ruta automática. Reemplaza un sistema de escritorio antiguo.",
     estado: "Implementado (prácticas preprofesionales)",
@@ -323,13 +337,13 @@ window.PROYECTOS = [
       ["tramite/03-registro-documento.webp", "Registro de documento"],
       ["tramite/01-login.webp", "Acceso al sistema"],
       ["tramite/06-arquitectura.webp", "Arquitectura del sistema (patrón MVT)"],
-      ["tramite/07-modelo-er.webp", "Modelo entidad-relación"],
       ["tramite/08-flujo.webp", "Diagrama de actividades del trámite"],
     ],
   },
   {
     id: "splash",
     nombre: "Splash Bubble Tea",
+    subtitulo: "Panel, app y ruleta para una tienda",
     resumen:
       "Ecosistema para una tienda de bubble tea: panel de administración con caja y POS, app móvil para clientes con billetera y QR, y ruleta de premios promocional.",
     estado: "Entregado al cliente",
@@ -357,7 +371,8 @@ window.PROYECTOS = [
   },
   {
     id: "fintbot",
-    nombre: "FintBot — asistente financiero con IA",
+    nombre: "FintBot",
+    subtitulo: "Asistente financiero con IA",
     resumen:
       "Asistente conversacional de Finatech para finanzas y tecnología, con generación de imágenes, voz y enrutamiento entre modelos.",
     estado: "Prototipo",
@@ -381,74 +396,86 @@ window.PROYECTOS = [
 window.OTROS = [
   {
     nombre: "e-Ciudadano / Munipay",
+    icono: "ph-receipt",
     texto: "Portal para que los contribuyentes de Maynas consulten y paguen en línea predial, arbitrios y multas con Izipay. Aporté fraccionamiento, multas de tránsito y administrativas, tickets de pago y notificaciones.",
     stack: ["Django", "DRF", "SQL Server", "Izipay"],
-    etiqueta: "Equipo OSTI · En producción",
+    etiqueta: "Equipo OSTI, en producción",
     url: "https://munipay.munimaynas.gob.pe",
   },
   {
     nombre: "IQTSEG y NETTO",
-    texto: "Participación en el equipo de la Oficina de Sistemas: app de reportes de seguridad ciudadana (IQTSEG) y seguimiento en tiempo real de compactadoras de basura (NETTO – Iquitos Limpio).",
+    icono: "ph-shield-check",
+    texto: "Participación en el equipo de la Oficina de Sistemas: app de reportes de seguridad ciudadana (IQTSEG) y seguimiento en tiempo real de compactadoras de basura (NETTO - Iquitos Limpio).",
     stack: ["Next.js", "Android"],
     etiqueta: "Equipo OSTI",
   },
   {
     nombre: "Contratos de inversión digitales",
+    icono: "ph-signature",
     texto: "Asistente de 5 pasos para inversionistas con firma electrónica, contratos en PDF sellados con hash y carga de vouchers.",
     stack: ["Next.js 16", "Zustand", "Django 5", "ReportLab"],
     etiqueta: "Finatech",
   },
   {
     nombre: "Chips FIMO",
+    icono: "ph-barcode",
     texto: "Inventario de chips SIM por escaneo de código de barras/QR: cajón, caja, lote y cliente, con exportación a Excel.",
     stack: ["JavaScript", "html5-qrcode", "Django", "DRF"],
     etiqueta: "Finatech",
   },
   {
     nombre: "Finatech Gallery",
+    icono: "ph-images",
     texto: "CDN interno de imágenes: carga por marca y compresión automática a WebP para todos los frontends de Finatech.",
     stack: ["Flask", "Pillow"],
     etiqueta: "Infraestructura",
   },
   {
     nombre: "CivilApp",
+    icono: "ph-hammer",
     texto: "App offline para negocios de construcción y carpintería: proyectos, presupuestos, inventario, personal, cobros y reportes, con licencias firmadas Ed25519 ligadas al dispositivo.",
     stack: ["Flutter", "Riverpod", "Drift/SQLite", "Node.js"],
     etiqueta: "Producto propio",
   },
   {
     nombre: "FindMe Perú",
+    icono: "ph-map-pin",
     texto: "Directorio de trabajadores independientes y negocios locales filtrado por distrito (UBIGEO), con reseñas y moderación.",
     stack: ["Next.js 16", "Prisma", "PostgreSQL", "Vitest"],
     etiqueta: "Producto propio",
   },
   {
     nombre: "Caserito",
+    icono: "ph-storefront",
     texto: "Punto de venta offline para bodegas con escáner de códigos, ventas al fiado, reportes y exportación a Excel.",
     stack: ["Flutter", "Riverpod", "fl_chart"],
     etiqueta: "Producto propio",
   },
   {
     nombre: "Detector de depresión con visión artificial",
+    icono: "ph-brain",
     texto: "Aplicación de escritorio que clasifica imágenes de rostros con una red neuronal convolucional entrenada por el equipo.",
     stack: ["Python", "TensorFlow/Keras", "OpenCV", "MATLAB"],
-    etiqueta: "Universidad · Equipo",
+    etiqueta: "Universidad, equipo",
   },
   {
     nombre: "BI Empresa Fluvial",
+    icono: "ph-chart-bar",
     texto: "Data warehouse de una empresa de transporte fluvial: ETL con SSIS, cubo OLAP en SSAS y dashboards en Power BI.",
     stack: ["SQL Server", "SSIS", "SSAS", "Power BI"],
-    etiqueta: "Universidad · Equipo",
+    etiqueta: "Universidad, equipo",
     url: "https://github.com/CharsFuentes/TallerDeBaseDeDatos",
   },
   {
     nombre: "CinePlanet Iquitos (académico)",
+    icono: "ph-film-slate",
     texto: "Sitio y panel de un cine: cartelera, socios, dulcería, validación de butacas, caja y reportes.",
     stack: ["Django", "Tailwind", "SQL Server"],
-    etiqueta: "Universidad · Equipo",
+    etiqueta: "Universidad, equipo",
   },
   {
     nombre: "POS móvil LP5",
+    icono: "ph-device-mobile",
     texto: "App de punto de venta en Flutter: login, catálogo de tiendas, detalle de producto y ventas.",
     stack: ["Flutter", "Dart"],
     etiqueta: "Universidad",
@@ -456,6 +483,7 @@ window.OTROS = [
   },
   {
     nombre: "Payments API",
+    icono: "ph-credit-card",
     texto: "API de pagos en PHP desarrollada como prueba técnica.",
     stack: ["PHP", "Laravel"],
     etiqueta: "Prueba técnica",
@@ -463,6 +491,7 @@ window.OTROS = [
   },
   {
     nombre: "Juego top-down en Python",
+    icono: "ph-game-controller",
     texto: "Shooter con personaje, armas, enemigos, ítems, niveles por mapas CSV y sonidos.",
     stack: ["Python", "pygame"],
     etiqueta: "Personal",
@@ -472,8 +501,8 @@ window.OTROS = [
 window.EXPERIENCIA = [
   {
     cargo: "Desarrollador de software",
-    lugar: "Grupo Brunner — Iquitos",
-    periodo: "Jun 2026 – actualidad",
+    lugar: "Grupo Brunner, Iquitos",
+    periodo: "Jun 2026 - actualidad",
     puntos: [
       "Desarrollo de módulos del ERP corporativo (PHP/MySQL): Activos Fijos con depreciación y reporte para SUNAT, Plan Operativo de Infraestructura (POI) y Proveedores Homologados con comité de calificación.",
       "Diseño de la API privada para balanzas (contrato OpenAPI 1.2): credenciales solo como hash, catálogos por sede con cursor incremental e ingreso idempotente de tickets.",
@@ -484,7 +513,7 @@ window.EXPERIENCIA = [
   {
     cargo: "Líder técnico y desarrollador full stack",
     lugar: "Finatech",
-    periodo: "2025 – actualidad",
+    periodo: "2025 - actualidad",
     puntos: [
       "Desarrollo de Zivo (publicada en Play Store y App Store), Finlot, Alini, FintBot, Splash Bubble y Chips FIMO.",
       "Coordinación de un equipo de desarrolladores, despliegue en VPS con Docker y Nginx.",
@@ -492,8 +521,8 @@ window.EXPERIENCIA = [
   },
   {
     cargo: "Desarrollador",
-    lugar: "Oficina de Sistemas y TI — Municipalidad Provincial de Maynas",
-    periodo: "2024 – 2025",
+    lugar: "Municipalidad Provincial de Maynas (OSTI)",
+    periodo: "2024 - 2025",
     puntos: [
       "Desarrollador principal de Serenazgo Digital (SIPSC), en producción.",
       "Módulos de e-Ciudadano/Munipay (pagos en línea), IA Recaudación (predicción tributaria) y backend de MuniWeb 2025.",
@@ -503,7 +532,7 @@ window.EXPERIENCIA = [
   {
     cargo: "Proyectos independientes y consultoría TIC",
     lugar: "Gobiernos locales y pequeñas empresas de Loreto",
-    periodo: "2024 – actualidad",
+    periodo: "2024 - actualidad",
     puntos: [
       "Trámite Documentario para la Municipalidad Distrital de Yavarí, plataforma Participa y productos propios (CivilApp, FindMe Perú, Caserito).",
     ],
@@ -514,6 +543,6 @@ window.STACK = [
   ["Backend", ["Python", "Django / DRF", "Django Channels", "PHP", "Laravel", "Node.js / Express", "Flask"]],
   ["Frontend", ["React", "TypeScript", "Next.js", "Tailwind CSS", "Vite", "Leaflet", "Chart.js / Recharts"]],
   ["Móvil", ["Flutter / Dart", "Firebase", "Google y Apple Sign-In", "Publicación en Play Store y App Store"]],
-  ["Datos e IA", ["PostgreSQL", "SQL Server", "MySQL", "Redis", "SQLite", "Claude API / MCP", "pandas · scikit-learn", "Power BI"]],
+  ["Datos e IA", ["PostgreSQL", "SQL Server", "MySQL", "Redis", "SQLite", "Claude API / MCP", "pandas y scikit-learn", "Power BI"]],
   ["DevOps", ["Docker", "Nginx", "Gunicorn", "VPS Linux", "Git / GitHub", "Codemagic CI"]],
 ];
