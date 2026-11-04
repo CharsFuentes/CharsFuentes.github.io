@@ -89,12 +89,12 @@ window.PROYECTOS = [
     imagenes: [
       ["zivo/01-inicio.webp", "Inicio: comercios de Iquitos por categoría"],
       ["zivo/02-carta.webp", "Carta de un restaurante"],
-      ["zivo/03-carrito.webp", "Carrito con propina y cupón"],
-      ["zivo/04-pedido-rider.webp", "Pedido del repartidor con mapa y ganancia"],
+      ["zivo/03-carrito.webp", "Agregar al carrito con un toque"],
+      ["zivo/04-pedido-rider.webp", "Pedidos disponibles para el repartidor, con su ganancia"],
       ["zivo/05-finanzas-rider.webp", "Finanzas del repartidor e inicio de jornada"],
-      ["zivo/06-perfil-comercio.webp", "Perfil del comercio con ubicación en el mapa"],
-      ["zivo/07-guia-comercio.webp", "Guía para comercios"],
-      ["zivo/08-login.webp", "Inicio de sesión con Google"],
+      ["zivo/06-seguimiento.webp", "Seguimiento del pedido con código de entrega"],
+      ["zivo/07-pedido.webp", "Pedido con la entrega marcada en el mapa"],
+      ["zivo/08-modo-noche.webp", "Modo noche"],
     ],
   },
   {
