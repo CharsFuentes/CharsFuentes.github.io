@@ -15,16 +15,30 @@
   <link rel="stylesheet" href="assets/vendor/phosphor/regular.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script>
-    // Tema antes de pintar, para evitar parpadeo
+    // Antes de pintar: tema guardado y, en la primera visita de la sesión, la intro
     (function () {
-      var t = localStorage.getItem("tema");
+      var d = document.documentElement, t = null, visto = false;
+      try { t = localStorage.getItem("tema"); visto = sessionStorage.getItem("intro") === "1"; } catch (e) {}
       if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "claro" : "oscuro";
-      document.documentElement.dataset.tema = t;
+      d.dataset.tema = t;
+      if (!visto && !matchMedia("(prefers-reduced-motion: reduce)").matches && location.hash.length < 2) {
+        d.classList.add("intro");
+        setTimeout(function () { if (!window.__introLista) d.classList.remove("intro"); }, 5000);
+      }
     })();
   </script>
 </head>
 <body>
   <a class="saltar" href="#proyectos">Saltar a los proyectos</a>
+  <canvas class="fluido" id="fluido" aria-hidden="true"></canvas>
+
+  <div class="cargador" id="cargador" aria-hidden="true">
+    <span class="cargador__marca">Charles Fuentes</span>
+    <span class="cargador__num" id="cargador-num">0</span>
+    <span class="cargador__barra"><span id="cargador-barra"></span></span>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor__punto"><span id="cursor-texto"></span></div></div>
 
   <header class="nav" id="nav">
     <div class="marco nav__in">
@@ -34,24 +48,29 @@
       </a>
       <nav class="nav__links" aria-label="Secciones">
         <a href="#proyectos">Proyectos</a>
+        <a href="#pantallas">Pantallas</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#stack">Tecnologías</a>
       </nav>
       <div class="nav__acciones">
+        <button class="icono-boton" type="button" data-terminal aria-label="Abrir la terminal (Ctrl + K)" title="Terminal (Ctrl + K)">
+          <i class="ph ph-terminal-window" aria-hidden="true"></i>
+        </button>
         <button class="icono-boton" id="tema" type="button" aria-label="Cambiar tema claro u oscuro">
           <i class="ph ph-moon-stars" aria-hidden="true"></i>
         </button>
         <a href="#contacto" class="boton boton--chico magnetico">Escríbeme</a>
       </div>
     </div>
+    <span class="nav__avance" id="avance" aria-hidden="true"></span>
   </header>
 
   <main>
     <!-- Portada -->
-    <section class="hero" id="inicio">
+    <section class="hero" id="inicio" data-zona="la portada">
       <div class="marco hero__in">
         <div class="hero__texto">
-          <p class="hero__ceja">Charles Fuentes, Ingeniero de Sistemas</p>
+          <p class="hero__ceja" id="ceja">Charles Fuentes, Ingeniero de Sistemas</p>
           <h1 class="hero__titulo" id="titulo">Construyo software que se usa <em>de verdad.</em></h1>
           <p class="hero__sub">Full stack y móvil. Sistemas en producción para municipalidades, apps en Play Store y App Store, e IA aplicada.</p>
           <div class="hero__acciones">
@@ -60,17 +79,19 @@
           </div>
         </div>
         <div class="hero__visual" id="visual" aria-hidden="true">
-          <div class="capa capa--escritorio" data-prof="0.4">
-            <img src="assets/img/proyectos/serenazgo/01-mapa-calor.webp" alt="" width="1400" height="788" />
-          </div>
-          <div class="capa capa--tablero" data-prof="0.7">
-            <img src="assets/img/proyectos/sgcobit19/03-mapa-calor-magerit.webp" alt="" width="1400" height="875" />
-          </div>
-          <div class="capa capa--movil capa--m1" data-prof="1.1">
-            <img src="assets/img/proyectos/zivo/01-inicio.webp" alt="" width="480" height="1067" />
-          </div>
-          <div class="capa capa--movil capa--m2" data-prof="1.5">
-            <img src="assets/img/proyectos/zivo/04-pedido-rider.webp" alt="" width="480" height="1067" />
+          <div class="escena" id="escena">
+            <div class="capa capa--escritorio" data-z="-70">
+              <img src="assets/img/proyectos/serenazgo/01-mapa-calor.webp" alt="" width="1400" height="788" />
+            </div>
+            <div class="capa capa--tablero" data-z="20">
+              <img src="assets/img/proyectos/sgcobit19/03-mapa-calor-magerit.webp" alt="" width="1400" height="875" />
+            </div>
+            <div class="capa capa--movil capa--m1" data-z="110" data-ciclo="zivo/02-carta.webp,zivo/03-carrito.webp,zivo/06-seguimiento.webp">
+              <img src="assets/img/proyectos/zivo/01-inicio.webp" alt="" width="480" height="1067" />
+            </div>
+            <div class="capa capa--movil capa--m2" data-z="180" data-ciclo="zivo/07-pedido.webp,zivo/05-finanzas-rider.webp,zivo/08-modo-noche.webp">
+              <img src="assets/img/proyectos/zivo/04-pedido-rider.webp" alt="" width="480" height="1067" />
+            </div>
           </div>
         </div>
       </div>
@@ -81,12 +102,19 @@
       <div class="cinta__pista" id="cinta"></div>
     </section>
 
-    <!-- Impacto -->
-    <section class="seccion" id="impacto">
+    <!-- Cómo trabajo: la frase se ilumina con el scroll -->
+    <section class="manifiesto" aria-label="Cómo trabajo">
       <div class="marco">
-        <h2 class="titulo-seccion" data-revelar>Lo que ya está funcionando</h2>
+        <p class="manifiesto__texto" id="manifiesto">Trabajo <em>de punta a punta</em>: diseño la base de datos, construyo la API, la web y la app móvil, y lo dejo desplegado y funcionando.</p>
+      </div>
+    </section>
+
+    <!-- Impacto -->
+    <section class="seccion" id="impacto" data-zona="las cifras">
+      <div class="marco">
+        <h2 class="titulo-seccion" data-titulo>Lo que ya está funcionando</h2>
         <div class="bento">
-          <article class="bento__celda bento__celda--a" data-revelar>
+          <article class="bento__celda bento__celda--a luz" data-revelar-lote>
             <img class="bento__fondo" src="assets/img/proyectos/serenazgo/03-analitica.webp" alt="" loading="lazy" />
             <div class="bento__texto">
               <span class="cifra"><span data-contar="5">5</span></span>
@@ -94,18 +122,18 @@
               <p>Serenazgo Digital, Zivo, Participa, MuniWeb y Munipay, usados a diario.</p>
             </div>
           </article>
-          <article class="bento__celda bento__celda--b" data-revelar>
+          <article class="bento__celda bento__celda--b luz" data-revelar-lote>
             <div class="bento__texto">
               <span class="cifra"><span data-contar="1">1</span></span>
               <h3>app publicada en Play Store y App Store</h3>
             </div>
             <img class="bento__telefono" src="assets/img/proyectos/zivo/02-carta.webp" alt="" loading="lazy" />
           </article>
-          <article class="bento__celda bento__celda--c" data-revelar>
+          <article class="bento__celda bento__celda--c" data-revelar-lote>
             <span class="cifra"><span data-contar="25">25</span>+</span>
             <h3>proyectos entre gobierno, fintech, IA y comercio</h3>
           </article>
-          <article class="bento__celda bento__celda--d" data-revelar>
+          <article class="bento__celda bento__celda--d luz" data-revelar-lote>
             <img class="bento__fondo" src="assets/img/proyectos/brunnerai/02-arquitectura.webp" alt="" loading="lazy" />
             <div class="bento__texto">
               <span class="cifra"><span data-contar="320">320</span>+</span>
@@ -116,40 +144,49 @@
       </div>
     </section>
 
-    <!-- Destacados: desplazamiento horizontal -->
-    <section class="destacados" id="proyectos">
+    <!-- Destacados: el scroll vertical los recorre en horizontal -->
+    <section class="destacados" id="proyectos" data-zona="los proyectos destacados">
       <div class="destacados__cabecera marco">
-        <h2 class="titulo-seccion">Proyectos destacados</h2>
+        <h2 class="titulo-seccion" data-titulo>Proyectos destacados</h2>
         <div class="destacados__progreso" aria-hidden="true"><span id="progreso"></span></div>
       </div>
       <div class="destacados__pista" id="pista"></div>
     </section>
 
+    <!-- Anillos 3D con todas las pantallas -->
+    <section class="pantallas" id="pantallas" data-zona="el anillo de pantallas">
+      <div class="marco pantallas__cabecera">
+        <h2 class="titulo-seccion" data-titulo>Gira el anillo</h2>
+        <p class="pantallas__sub" data-revelar><span id="anillo-total">40</span> pantallas de sistemas reales. Arrastra para girar y haz clic en cualquiera para abrir su proyecto.</p>
+      </div>
+      <div class="anillos" id="anillos" aria-hidden="true" data-cursor="Arrastra"></div>
+    </section>
+
     <!-- Más proyectos con galería -->
-    <section class="seccion" id="mas-proyectos">
+    <section class="seccion" id="mas-proyectos" data-zona="más proyectos">
       <div class="marco">
-        <h2 class="titulo-seccion" data-revelar>Más trabajo con pantallas</h2>
+        <h2 class="titulo-seccion" data-titulo>Más proyectos</h2>
         <div class="mosaico" id="mosaico"></div>
       </div>
     </section>
 
     <!-- Otros proyectos -->
-    <section class="seccion seccion--compacta" aria-labelledby="otros-titulo">
+    <section class="seccion seccion--compacta" aria-labelledby="otros-titulo" data-zona="otros proyectos">
       <div class="marco otros__cabecera">
-        <h2 class="titulo-seccion" id="otros-titulo" data-revelar>Otros proyectos</h2>
+        <h2 class="titulo-seccion" id="otros-titulo" data-titulo>Y todavía hay más</h2>
         <div class="otros__flechas">
           <button class="icono-boton" type="button" id="otros-prev" aria-label="Anteriores"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
           <button class="icono-boton" type="button" id="otros-next" aria-label="Siguientes"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
         </div>
       </div>
-      <div class="carrusel" id="otros" tabindex="0" aria-label="Otros proyectos, desliza para ver más"></div>
+      <div class="carrusel" id="otros" tabindex="0" aria-label="Otros proyectos, desliza para ver más" data-cursor="Arrastra"></div>
     </section>
 
     <!-- Experiencia -->
-    <section class="seccion" id="experiencia">
+    <section class="seccion" id="experiencia" data-zona="la experiencia">
       <div class="marco experiencia">
         <div class="experiencia__lado">
-          <h2 class="titulo-seccion" data-revelar>Dónde he trabajado</h2>
+          <h2 class="titulo-seccion" data-titulo>Dónde he trabajado</h2>
           <div class="formacion" data-revelar>
             <i class="ph ph-graduation-cap" aria-hidden="true"></i>
             <div>
@@ -164,18 +201,34 @@
       </div>
     </section>
 
-    <!-- Tecnologías -->
-    <section class="seccion" id="stack">
+    <!-- Tecnologías: pozo con física y lista -->
+    <section class="seccion" id="stack" data-zona="las tecnologías">
       <div class="marco">
-        <h2 class="titulo-seccion" data-revelar>Con qué construyo</h2>
+        <div class="stack__cabecera">
+          <h2 class="titulo-seccion" data-titulo>Con qué construyo</h2>
+          <button class="boton boton--fantasma boton--chico" id="sacudir" type="button"><i class="ph ph-arrows-out-cardinal" aria-hidden="true"></i> Sacudir</button>
+        </div>
+        <div class="pozo" id="pozo" aria-hidden="true">
+          <span class="pozo__nombre" id="pozo-nombre">Agárralos y lánzalos</span>
+        </div>
         <div class="stack" id="stack-lista"></div>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section class="contacto" id="contacto">
+    <section class="contacto" id="contacto" data-zona="el contacto">
       <div class="marco contacto__in">
-        <h2 class="contacto__titulo" data-revelar>¿Tienes una vacante o un proyecto?</h2>
+        <div class="visita" id="visita" data-revelar>
+          <p class="visita__frase" id="visita-frase">Tu visita, medida en vivo.</p>
+          <dl class="visita__datos">
+            <div><dt>Tiempo aquí</dt><dd id="v-tiempo">0 s</dd></div>
+            <div><dt>Scroll recorrido</dt><dd id="v-scroll">0 m</dd></div>
+            <div><dt id="v-extra-titulo">Tu cursor viajó</dt><dd id="v-extra">0 m</dd></div>
+            <div><dt>Lo que más miraste</dt><dd id="v-top">La portada</dd></div>
+          </dl>
+          <p class="visita__nota">Se calcula en tu navegador. No se guarda ni se envía a ningún lado.</p>
+        </div>
+        <h2 class="contacto__titulo" data-titulo>¿Tienes una vacante o un proyecto?</h2>
         <p class="contacto__sub" data-revelar>Respondo rápido por WhatsApp o correo. Estoy en Iquitos, Loreto, Perú.</p>
         <button class="correo magnetico" id="copiar" type="button" data-revelar>
           <span id="correo-texto"></span>
@@ -193,13 +246,13 @@
 
   <footer class="pie">
     <div class="marco pie__in">
-      <span>© <span id="anio"></span> Charles Fuentes Flores</span>
-      <span>Las capturas usan datos de demostración.</span>
+      <span>© <span id="anio"></span> Charles Fuentes Flores. Las capturas usan datos de demostración.</span>
+      <button class="pie__terminal" type="button" data-terminal><span class="solo-fino"><kbd>Ctrl</kbd> + <kbd>K</kbd> abre la terminal</span><span class="solo-tactil">Abrir la terminal</span></button>
     </div>
   </footer>
 
   <!-- Detalle de proyecto -->
-  <dialog class="modal" id="modal" aria-labelledby="modal-titulo">
+  <dialog class="modal" id="modal" aria-labelledby="modal-titulo" data-lenis-prevent>
     <button class="icono-boton modal__cerrar" id="modal-cerrar" type="button" aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button>
     <div class="modal__cuerpo">
       <div class="visor" id="visor">
@@ -215,10 +268,35 @@
     </div>
   </dialog>
 
+  <!-- Terminal -->
+  <dialog class="terminal" id="terminal" aria-label="Terminal interactiva" data-lenis-prevent>
+    <div class="terminal__barra">
+      <span class="terminal__titulo"><i class="ph ph-terminal-window" aria-hidden="true"></i> charles@portafolio</span>
+      <button class="icono-boton" id="terminal-cerrar" type="button" aria-label="Cerrar la terminal"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="terminal__salida" id="terminal-salida" role="log" aria-live="polite"></div>
+    <div class="terminal__atajos" id="terminal-atajos">
+      <button type="button" data-comando="ayuda">ayuda</button>
+      <button type="button" data-comando="proyectos">proyectos</button>
+      <button type="button" data-comando="visita">visita</button>
+      <button type="button" data-comando="fuego">fuego</button>
+      <button type="button" data-comando="sudo contratar charles">sudo contratar charles</button>
+    </div>
+    <form class="terminal__linea" id="terminal-form">
+      <label for="terminal-entrada"><span class="terminal__host">charles@portafolio:</span>~$</label>
+      <input id="terminal-entrada" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" />
+    </form>
+  </dialog>
+
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
   <script src="assets/js/logos.js"></script>
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/fx-fluido.js"></script>
+  <script src="assets/js/fx-anillo.js"></script>
+  <script src="assets/js/fx-fisica.js"></script>
+  <script src="assets/js/terminal.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
